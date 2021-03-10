@@ -6,6 +6,9 @@
 $(제어대상).method1().method2();
    <주어>        <서술어>
 
+제어대상 : 클래스(.), 아이디(#), 태그(X)
 ex)
 $('.welcome').html('hello').css('background-color', 'yellow');
  
+$('body').prepend('<h1>hello</h1>'); // body 엘리먼트내부의 제일 앞에 내용을 추가.
+$('#active').css('color', 'red').css('textDecoration', 'underline') // 밑줄 긋기
