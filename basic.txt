@@ -1,3 +1,21 @@
-<script type="text/javascript"> 
+사용방법
+
+1. inline 방식
+ex) <input type="button" onclick="alert('a');">
+
+2. script 태그 이용
+<script> 
   alert("a");
 </script>
+
+3. 외부 파일로 분리
+<script src="./asd.js"></script>
+
+4. 스크립트 태그의 위치
+body 태그 맨 아래.
+<body>
+  ...
+  ..
+  <script>
+  </script>
+</body>
