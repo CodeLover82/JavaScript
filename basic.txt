@@ -56,3 +56,34 @@ window.open('sad.html','_blank') // 새 창에서 문서 출력
 window.open('sad.html','_self') // 현재 창에서 문서 출력
 window.open('sad.html','_blank', 'width=100, height=200'); // 세번째 인자는 새 창의 모양과 관련된 속성.
 
+< document.getElementsByTagName >
+var lis = document.getElementsByTagName('li');
+for(var i = 0;i < lis.length;i++){
+  lis[i].style.color='red';
+}
+
+// 특정한 ul에 있는 li만 적용할 때
+var ul = document.getElementsByTagName('ul')[0];
+var lis = ul.getElementsByTagName('li');
+for(var i = 0;list.length;i++){
+  lis[i].style.color='red';
+}
+
+< getElementsByClassName >
+var lis = document.getElementsByClassName('active');
+    for(var i=0; i < lis.length; i++){
+        lis[i].style.color='red';  
+
+< getElementsById >
+var li = document.getElementById('active');
+li.style.color='red';
+
+< querySelector >
+var li = document.querySelector('li'); // TagName , 제일 먼저 나타나는 하나만
+li.style.color='red';
+var li = document.querySelector('.active'); // ClassName, 제일 먼저 나타나는 하나만
+li.style.color='blue';
+
+여러개 선택하기
+var lis = document.querySelectorAll('li'); // or '.active'
+for(var i = 0;i < list.length;i++)lis[i].style.color='blue';
