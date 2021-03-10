@@ -116,11 +116,20 @@ var t = document.getElementById('target');
         alert('Hello world');
     }
 
+이벤트 리스너 :
+ex)
 
+   var t = document.getElementById('target');
+    t.addEventListener('click', function(event){
+        alert('Hello world, '+event.target.value);
+    });
+    
+    
+    
 이벤트 객체 : 이벤트 객체는 이벤트가 실행될 때 이벤트 핸들러의 인자로 전달된다.  
 ex)
 var t = document.getElementById('target');
     t.onclick = function(event){
-        alert('Hello world, '+event.target.value)   // event.target 타겟 엘리먼트
+        alert('Hello world, '+event.target.value)   // event.target = 타겟 엘리먼트
     }
     
