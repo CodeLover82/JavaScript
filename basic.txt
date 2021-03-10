@@ -19,3 +19,40 @@ body 태그 맨 아래.
   <script>
   </script>
 </body>
+
+< object model >
+
+
+window 객체 -> DOM  : document는 윈도우 객체의 프로퍼티. => window.document 지만 window 는 생략 가능.
+              BOM : navigator, screen, frames..
+              JS : Object, Array, Function
+              
+var imgs = document.getElementsByTagname('img');
+imgs[0] => 배열의 1번째 요소.
+imgs[0].style.width='30px'; // style : css 속성.
+
+window.alert("hello"); => window는 생략가능.
+
+전역 변수, 전역함수를 만드는 것은 window의 프로퍼티를 추가한 것이다.
+즉, 콘솔창에 a = 1;
+치면, 이것은 window.a 와 같다.
+
+alert(1); // 경고창을 확인 버튼 누르기 전까지는 다음 로직이 수행되지 않는다.
+alert(2);
+if(confirm('ok?'))alert('ok'); // confirm 은 확인 or 취소 버튼이 나온다. boolean 리턴.
+else alert('cancel');
+if(prompt('id?') ==='egoing')alert('welcome'); // 입력창 생성. 입력값 반환.
+else alert('fail');
+
+현재의 주소값 출력: console.log(location.href);  
+ - 주소 변경 : location.href = "asdads";
+프로토콜 출력 :console.log(location.protocol);
+서버의 주소 : location.host; // 뒤에 Get 방식으로 딸려오는 값들은 제외
+포트 주소 : location.port;
+리로드 : location.reload();
+
+window.open('sad.html') // 새 창에서 문서 출력
+window.open('sad.html','_blank') // 새 창에서 문서 출력
+window.open('sad.html','_self') // 현재 창에서 문서 출력
+window.open('sad.html','_blank', 'width=100, height=200'); // 세번째 인자는 새 창의 모양과 관련된 속성.
+
