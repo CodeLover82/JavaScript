@@ -1,0 +1,31 @@
+웹브라우저와 웹서버가 내부적으로 데이터 통신을 하게 된다. 
+그리고 변경된 결과를 웹페이지에 프로그래밍적으로 반영함으로써 웹페이지의 로딩 없이 서비스를 사용할 수 있게 한다. 
+=> 새로고침 필요 X
+
+[ GET 방식 ]
+document.querySelector('input').addEventListener('click', function(event){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', './time.php');
+  xhr.onreadystatechange = function(){    // 상태의 변화가 생길 때 마다 발생되는 이벤트 (다양하다)
+    if(xhr.readyState === 4 && xhr.status === 200){    // readyState = 4 : 통신이 끝났다. , status=200 : 성공.
+      document.querySelector('#time').innerHTML = xhr.responseText;  // responseText : 응답받은 데이터
+    }
+  }
+  xhr.send();
+});
+
+[ POST 방식 ]
+document.querySelector('input').addEventListener('click', function(event){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './time2.php');
+    xhr.onreadystatechange = function(){
+        document.querySelector('#time').innerHTML = xhr.responseText;
+    }
+    
+    var data = '';
+    data += 'timezone='+document.getElementById('timezone').value;
+    data += '&format='+document.getElementById('format').value;
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    xhr.send(data);
+});
