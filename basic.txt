@@ -149,6 +149,7 @@ ex)
             });
 
 이벤트 타입
+[폼]
 1. submit : 폼을 제출할 때
 var t = document.getElementById('target');
 t.addEventListener('submit', function(event){
@@ -170,3 +171,9 @@ t.addEventListener('blur', function(event){
 t.addEventListener('focus', function(event){
     alert('focus'); 
 });
+
+[문서 로딩]
+ window.addEventListener('load', function(){
+            var t = document.getElementById('target');
+            console.log(t);
+        })
