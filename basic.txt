@@ -173,7 +173,38 @@ t.addEventListener('focus', function(event){
 });
 
 [문서 로딩]
+문서내의 모든 리소스(이미지, 스크립트)의 다운로드가 끝난 후에 실행
  window.addEventListener('load', function(){
             var t = document.getElementById('target');
             console.log(t);
         })
+[마우스]
+1.click 클릭
+2.dbclick 더블클릭
+3.mouseup 눌렀을때
+4. mousedown 뗏을때
+5.mousemove 움직였을때
+6.mouseover 마우스가 타겟 안쪽으로 들어왔을때
+7.mouseout 타겟에서 나올때
+8.contextmenu 타겟에서 오른쪽버튼 누를때
+
+키보드 조합 1. event.shiftKey, event.altKey, event.crtlKey
+function handler(event){
+            var info = document.getElementById('elm'+event.type);
+            var time = new Date();
+            var timestr = time.getMilliseconds();
+            info.innerHTML = (timestr);
+            if(event.altKey){
+                document.getElementById('elmaltkey').innerHTML = timestr;
+            }
+            if(event.ctrlKey){
+                document.getElementById('elmctrlkey').innerHTML = timestr;
+            }
+            if(event.shiftKey){
+                document.getElementById('elmshiftKey').innerHTML = timestr;
+            }
+            document.getElementById('elemclientx').innerHTML = event.clientX;
+            document.getElementById('elemclienty').innerHTML = event.clientY;
+        }
+        
+마우스 포인터의 위치 : event.clientX, event.clientY
