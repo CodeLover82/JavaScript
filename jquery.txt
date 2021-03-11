@@ -17,3 +17,20 @@ var li = $('li');
 li[0], li[1] 사용 가능.
 총 개수 : li.length;
 
+이벤트 설정
+$('#jquery').on('click', function(event){
+   alert('jQuery');
+}
+
+문법 : .on( events [, selector ] [, data ], handler(eventObject) )
+
+- selector
+아래의 예제는 ul 엘리먼트의 하위 엘리먼트 중에  a, li 엘리먼트들에 대해서만 이벤트가 발생한다. 주의 할 것은 ul 엘리먼트는 이벤트가 발생하지 않는다는 점
+  $('ul').on('click','a, li', function(event){
+        console.log(this.tagName);
+    })
+    
+- 다중 바인딩
+$('#target').on('focus blur', function(e){
+        $('#status').html(e.type);
+    })
