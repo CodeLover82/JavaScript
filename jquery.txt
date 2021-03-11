@@ -34,3 +34,36 @@ $('#jquery').on('click', function(event){
 $('#target').on('focus blur', function(e){
         $('#status').html(e.type);
     })
+    
+< jQuery와 Ajax >
+형식 : jQuery.ajax(url [,settings])
+
+// post 방식 처리
+ $('#execute').click(function(){
+        $.ajax({
+            url:'./time2.php',
+            type:'post',               // get, post
+            data:$('form').serialize(), // 폼 데이터를 JSON 데이터형식에 맞게 변형해줌.
+            success:function(data){
+                $('#time').text(data);   // 데이터가 txt파일 그 자체를 집어넣으면 되므로
+            }
+        })
+    })
+
+// 서버에서 JSON 형식이 올 때
+$('#execute').click(function(){
+   $.ajax({
+      url: './time2.php',    // 서버 주소
+      dataType: 'json',      // 서버측에서 전송한 데이터를 어떤 형식의 데이터로 해석할 것인가를 지정한다. 
+                             // 값으로 올 수 있는 것은 xml, json, script, html이다
+      success:function(data){         
+         var str = '';
+         for(var i = 0;i < data.length;i++){
+            str += '<li>' + data[i] + '</li'>
+         }
+         str = '<ul>' + str + '</ul>';
+         
+         $('#timezone').html(data);   // 데이터를 html태그와조합하여변형후 넣어야하므로 html
+      }
+   })
+}
