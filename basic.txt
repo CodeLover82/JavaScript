@@ -133,3 +133,40 @@ var t = document.getElementById('target');
         alert('Hello world, '+event.target.value)   // event.target = 타겟 엘리먼트
     }
     
+< 기본 동작의 취소 >
+return 값이 false이면 기본동작이 수행되지 않는다.
+ex)
+<a href="http://opentutorials.org" onclick="if(document.getElementById('prevent').checked) return false;">opentutorials</a>
+ex)
+  document.querySelector('a').onclick = function(event){
+        if(document.getElementById('prevent').checked)
+            return false;
+    };
+ex)
+    document.querySelector('form').addEventListener('submit', function(event){
+                if(document.getElementById('prevent').checked)
+                    event.preventDefault();
+            });
+
+이벤트 타입
+1. submit : 폼을 제출할 때
+var t = document.getElementById('target');
+t.addEventListener('submit', function(event){
+    if(document.getElementById('name').value.length === 0){
+        alert('Name 필드의 값이 누락 되었습니다');
+        event.preventDefault();
+    }
+});
+2. change : input, textarea 등 입력을 다 끝내고 포커즈를 빠져 나왔을 때
+var t = document.getElementById('target');
+t.addEventListener('change', function(event){
+    document.getElementById('result').innerHTML=event.target.value;
+});
+3. blur, focus : focus는 엘리먼트에 포커스가 생겼을 때, blur은 포커스가 사라졌을 때
+var t = document.getElementById('target');
+t.addEventListener('blur', function(event){
+    alert('blur');  
+});
+t.addEventListener('focus', function(event){
+    alert('focus'); 
+});
