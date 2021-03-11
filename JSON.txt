@@ -1,0 +1,51 @@
+JSON.parse(data)
+인자로 전달된 문자열을 자바스크립트의 데이터(객체)로 변환한다.
+
+JSON.stringify(data)
+인자로 전달된 자바스크립트의 데이터(객체)를 문자열로 변환한다.
+
+JSON의 형식
+1. 객체
+{
+  string : value;
+  string : value;
+  ...
+}
+2. 배열
+{
+  value,
+  value,
+  ...
+}
+
+※value에는 string, mumber,object, array, true, false, null이 들어갈 수 있다.
+
+
+ex)
+var info = {
+  "font_face": "iInconsolata",
+  "font_size": 30,
+  "line_numbers": false
+};
+
+var str = JSON.stringify(info);  => 객체를 문자열로 변환.
+var obj = JSON.parse(info); => 문자열을 다시 객체로 변환.
+console.log(obj.font_size);
+
+
+document.querySelector('input').addEventListener('click', function(event){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './time2.php');
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+            var tzs = JSON.parse(xhr.responseText);
+            var str = '';
+            for(var i = 0;i < tzs.length;i++){
+              str += '<li>' + tzs[i] + '</li'>
+            }
+            str = '<ul>' + str + '</ul>';
+            document.querySelector('#timezones').innerHTML = str;
+        }
+    }
+    xhr.send(); 
+}); 
